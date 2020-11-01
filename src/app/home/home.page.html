@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Regla De Tres</ion-title>
+      <!-- <ion-title size="large">Regla De Tres</ion-title> -->
     </ion-toolbar>
   </ion-header>
 
@@ -25,11 +25,13 @@
     <div class="button_container">
       <button type='button' class="btn btn-dark" (click)='clean()'>Limpiar</button>
       <button type='button' class="btn btn-dark"(click)='calculate()' [disabled]=!isValid >Calcular</button>
+      <button type='button' class="btn btn-dark"(click)='borrar()'>Borrar datos</button>
+
+
     </div>
 
-    <div *ngIf="historial.length > 0">
+    <div *ngIf="historialList.length > 0">
       HISTORIAL
-        <div *ngFor="let value of historial">
-            {{value.result}} {{value.name}}
-
+        <div *ngFor="let value of historialList">
+           <div (click) ='detail(value)'>  {{value.name}} {{value.valueC}} x {{value.valueB}} / {{value.valueA}} =  {{value.result}}</div>
     </div>
